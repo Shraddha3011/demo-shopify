@@ -5,7 +5,7 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": true,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-4"
       }
     },
     "main-collection-product-grid": {
@@ -13,8 +13,8 @@
       "settings": {
         "products_per_page": 20,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "color_scheme": "scheme-4",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
