@@ -1,4 +1,8 @@
-.customer:not(.account):not(.order) {
+
+body{
+  background-color: blue;
+
+}.customer:not(.account):not(.order) {
   margin: 0 auto;
   max-width: 33.4rem;
   padding-left: 1.5rem;
