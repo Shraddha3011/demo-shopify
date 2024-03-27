@@ -103,6 +103,8 @@
     });
   };
 
+
+
   Wishlist.init = function () {
     bindUIActions();
     activateItemsInWishlist();
