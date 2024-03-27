@@ -5,7 +5,7 @@
   </div>
   <!-- Product Tile Grid -->
   <div class="wishlist-grid flex">
-    {% paginate collections.all.products by 3 %}
+    {% paginate collections.all.products by 9999 %}
       {% for product in collections.all.products %}
         {% include 'product-tile' %}
       {% endfor %}
@@ -19,7 +19,7 @@
   </div>
   <!-- Loader -->
   <div class="wishlist-loader">
-    <img class="wishlist-loader--image" src="{{ 'icn-wishlist.svg' | asset_url }}" alt="Wishlist loading" >
+    <img class="wishlist-loader--image" src="{{ 'icn-wishlist.svg' | asset_url }}" alt="Wishlist loading"  >
     <p class="wishlist-loader--text">Loading your customized wishlist...</p>
   </div>
 </div>
