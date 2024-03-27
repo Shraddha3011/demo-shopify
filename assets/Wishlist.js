@@ -103,7 +103,15 @@
     });
   };
 
-
+  var wishlist =localStorage.getItem('user_wishlist')
+  if (wishlist.indexOf(productHandle) > -1) {
+  $(this).addClass('is-active');
+  }
+  var wishlist =localStorage.getItem('user_wishlist')
+if (wishlist.indexOf(productHandle) -1) {
+$(this).remove();
+}
+  
 
   Wishlist.init = function () {
     bindUIActions();
