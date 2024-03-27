@@ -390,6 +390,7 @@
             productImg: "{{ product.featured_image | img_url: '' }}",
             productPrice: "{{ product.price | money | remove_first: '' }}",
             productUrl: "{{ product.url }}"
+              {% render 'wishlist' %}
         };
 
         let wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
