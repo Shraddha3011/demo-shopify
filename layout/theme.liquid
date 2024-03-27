@@ -36,7 +36,7 @@
     {%- endif -%}
 
     {{ content_for_header }}
- {{ 'styles.css' | asset_url | stylesheet_tag }}
+ {{ 'styles.scss' | asset_url | stylesheet_tag }}
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
@@ -304,6 +304,12 @@
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
 {{ 'Wishlist.js' | asset_url | script_tag }}
+<script>
+  (function() {
+        Wishlist.init();
+      }());
+      
+</script>
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
@@ -344,10 +350,6 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
-(function() {
-        Wishlist.init();
-      }());
-      
     </script>
 
     {%- if settings.predictive_search_enabled -%}
