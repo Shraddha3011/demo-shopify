@@ -1,4 +1,68 @@
-<a class="action--wishlist tile-actions--btn flex wishlist-btn" href="#" data-product-handle="{{ product.handle }}">
-  <img class="btn--main" src="{{ 'icn-wishlist.svg' | asset_url }} " alt="add to wishlist" height="100px" width="100px">
-  <div class="wishlist-btn is-active" data-product-handle="{{ product.handle }}">Add To Wishlist</div>
-</a>
+<style>
+  /* Style for product display can be added based on your design requirements */
+  @media only screen and (min-width: 750px) {
+      .js-wishlistBlock {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          column-gap: var(--grid-desktop-horizontal-spacing);
+      }
+  }
+
+  .c-product {
+      cursor: pointer;
+      margin-bottom: 20px;
+  }
+
+  .c-product img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: all .5s ease;
+  }
+
+  .c-product img:hover {
+      transform: scale(1.03);
+  }
+
+  .c-product h3.c-product__title {
+      margin-top: 10px;
+      position: relative;
+  }
+</style>
+
+<div class="recently-title">
+  <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in"><b>Wishlist</b></h2>
+</div>
+<div class="js-wishlistBlock">
+  <!-- Wishlist items will be displayed here -->
+</div>
+<div class="product-tile-container wishlist-tile-container" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">
+  <div class="product-tile wishlist-tile">
+    <div class="product-tile--tile-media">
+      <a class="tile-media--media-link" href="{{ product.url }}">
+        <div class="media-link--image">
+          <img class="image--main" src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title }}">
+        </div>
+      </a>
+    </div>
+    <div class="product-tile--tile-content flex">
+      <div class="tile-content--text">
+        <p class="text--title black">{{ product.title }}</p>
+        {% if product.compare_at_price > product.price %}
+          <p class="text--price">
+            <span class="price--compare strike-through">{{ product.compare_at_price | money }}</span> <span class="price--sale">{{ product.price | money }}</span>
+          </p>
+        {% else %}  
+          <p class="text--price">{{ product.price | money }}</p>
+        {% endif %}
+      </div>
+      <div class="product-tile--tile-actions flex">
+        {% render 'wishlist'%}
+        <a class="action--quick-cart tile-actions--btn flex cart-btn" href="/cart/add?id={{ product.selected_or_first_available_variant.id }}&quantity=1">Add To Cart</a>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
