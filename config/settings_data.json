@@ -1,5 +1,7 @@
 {
   "current": {
+    "enable-wishlist": true,
+    "wishlist-floating-button-position": true,
     "logo_width": 70,
     "type_header_font": "harmonia_sans_n6",
     "heading_scale": 130,
